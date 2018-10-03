@@ -25,9 +25,10 @@ Kafka API(Java)を利用した簡単な KafkaProducer と KafkaConsumer。
     
 1. consumer起動
     ```
-    $ java -classpath ./KafkaDemo-1.1-SNAPSHOT-jar-with-dependencies.jar [-DtopicName=topic名] [-DgroupId=consumer group名] [-DoffsetReset=latest|earliest] [-DkafkaBrokers=brokerリスト] [-DmaxNoMessageFoundCount=consumer待機時間] ind.bliu.demo.kafka.AppConsumer
+    $ java -classpath ./KafkaDemo-1.1-SNAPSHOT-jar-with-dependencies.jar [-DtopicName=topic名] [-DclientId=consumer識別子] [-DgroupId=consumer group名] [-DoffsetReset=latest|earliest] [-DkafkaBrokers=brokerリスト] [-DmaxNoMessageFoundCount=consumer待機時間] ind.bliu.demo.kafka.AppConsumer
     ```
     * groupId　consumer group名。指定なしの場合は`group1`
+    * clientId consumerの識別子。指定なしの場合は`client1`
     * offsetReset　consumerの受信開始offset（`latest`または`earliest`）。指定なしの場合は`earliest`
     * maxNoMessageFoundCount　consumerが終了するまでに、メッセージ受信しない状態が続く最大時間（秒）。指定なしの場合は`100`
     * topicName　受信先トピック名。指定なしの場合は`mytopic`

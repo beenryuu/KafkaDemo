@@ -19,6 +19,7 @@ public class ConsumerCreator {
         props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, KafkaConstants.MAX_POLL_RECORDS);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, System.getProperty(KafkaConstants.ENV_OFFSET_RESET, KafkaConstants.OFFSET_RESET_EARLIES));
+        props.put(ConsumerConfig.CLIENT_ID_CONFIG, System.getProperty(KafkaConstants.ENV_CLIENT_ID, KafkaConstants.CLIENT_ID));
 
         Consumer<Long, String> consumer = new KafkaConsumer<Long, String>(props);
         consumer.subscribe(Collections.singletonList(System.getProperty(KafkaConstants.ENV_TOPIC_NAME, KafkaConstants.TOPIC_NAME)));
